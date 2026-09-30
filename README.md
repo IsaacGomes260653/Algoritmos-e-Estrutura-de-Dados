@@ -14,11 +14,11 @@ Todo o código é comentado com foco em revisão: a ideia é que cada arquivo co
 
 Estruturas implementadas do zero, sem usar as classes prontas do `java.util`.
 
-| Módulo | Conteúdo |
-|--------|----------|
-| `01-vetores-e-matrizes` | Preenchimento, inversão, transposição e multiplicação de matrizes |
-| `02-lista-encadeada` | Lista simplesmente encadeada — inserção, exclusão e percurso |
-| `03-lista-circular` | Lista circular com menu interativo |
+| Pasta | Conteúdo |
+|-------|----------|
+| `AULA01` | Vetores e matrizes — preenchimento, inversão, transposição e multiplicação de matrizes |
+| `AULA03` | Lista simplesmente encadeada — inserção, exclusão e percurso |
+| `AULA05` | Lista circular com menu interativo |
 
 **Conceitos:** arrays uni e bidimensionais, laços aninhados, encapsulamento, referências entre objetos, religação de ponteiros e análise de complexidade — O(n), O(n²), O(n³).
 
