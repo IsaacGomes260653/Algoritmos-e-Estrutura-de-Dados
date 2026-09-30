@@ -43,9 +43,9 @@ Estruturas implementadas do zero, sem usar as classes prontas do `java.util`.
 └── (novas disciplinas entram aqui)
 ```
 
-Cada disciplina fica em uma pasta própria, e cada tópico em uma subpasta numerada. A numeração preserva a ordem em que o conteúdo foi visto em aula.
+Cada disciplina fica em uma pasta própria, e cada aula com código em uma subpasta `AULAxx`. O número é o da aula em que o conteúdo foi visto, por isso a sequência pode ter saltos.
 
-Pastas separadas também evitam colisão de nomes: `Lista.java` e `No.java` existem tanto na lista encadeada quanto na circular, e o Java não permite duas classes de mesmo nome no mesmo diretório.
+Pastas separadas também evitam colisão de nomes: `No.java` existe em quatro aulas e `Lista.java` em duas, e o Java não permite duas classes de mesmo nome no mesmo diretório.
 
 ---
 
