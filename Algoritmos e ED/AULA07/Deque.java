@@ -134,4 +134,39 @@ public class Deque {
         cabeca.setAnterior(null);
     }
 
+    public void removerFim(){
+        //Caso MUITO fácil: deque vazio
+        if (cauda == null){
+            System.out.println("O deque está vazio");
+            return;
+        }
+
+        System.out.println(cauda.getNumero());
+
+        //Caso fácil: deque com um único nó
+        if (cabeca == cauda){
+            cabeca = null;
+            cauda = null;
+            return;
+        }
+
+        //Caso difícil: deque com mais de um nó
+        /*
+            O MÉTODO QUE A FILA DA AULA06 NÃO CONSEGUIA FAZER RÁPIDO.
+
+            Lá, remover do fim exigia um while para achar o
+            PENÚLTIMO nó, porque numa lista simples não dá
+            para voltar — O(n) a cada remoção.
+
+            Aqui o penúltimo é simplesmente cauda.getAnterior():
+
+                antes:  [1] ⇄ [2] ⇄ [3]
+                depois: [1] ⇄ [2]
+
+            CUSTO: O(1). Nenhum percurso.
+        */
+        cauda = cauda.getAnterior();
+        cauda.setProximo(null);
+    }
+
 }
