@@ -17,6 +17,7 @@ Estruturas implementadas do zero, sem usar as classes prontas do `java.util`.
 | Pasta | Conteúdo |
 |-------|----------|
 | `AULA01` | Vetores e matrizes — preenchimento, inversão, transposição e multiplicação de matrizes |
+| `AULA02` | Ordenação (Selection Sort e Bubble Sort) e busca (exaustiva e binária) em vetores |
 | `AULA03` | Lista simplesmente encadeada — inserção, exclusão e percurso |
 | `AULA05` | Lista circular com menu interativo |
 | `AULA06` | Pilha (LIFO) e fila (FIFO) com nós encadeados — experimento de desempenho O(1) × O(n) |
