@@ -11,8 +11,16 @@ public class MatrizEsparsa {
     }
 
     //Métodos da classe
+
+    //Função de dispersão: diz em qual diretor (grupo) o número deve ficar.
+    //Math.floorMod sempre devolve um resto entre 0 e modulo - 1, mesmo para
+    //números negativos (-7 % 5 dá -2, mas Math.floorMod(-7, 5) dá 3).
+    private int calcularResto(int numero){
+        return Math.floorMod(numero, modulo);
+    }
+
     private Diretor procurarDiretor(int numero){
-        int resto = (numero & modulo);
+        int resto = calcularResto(numero);
 
         Diretor ponteiro = cabeca;
         while ((ponteiro != null) && (ponteiro.getResto() != resto)){
