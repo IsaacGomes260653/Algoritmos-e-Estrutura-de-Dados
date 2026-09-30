@@ -33,10 +33,12 @@ Estruturas implementadas do zero, sem usar as classes prontas do `java.util`.
 ## 📁 Organização
 
 ```
-├── algoritmos-e-estruturas-de-dados/
-│   ├── 01-vetores-e-matrizes/
-│   ├── 02-lista-encadeada/
-│   └── 03-lista-circular/
+├── Algoritmos e ED/
+│   ├── AULA01/   vetores e matrizes
+│   ├── AULA03/   lista encadeada
+│   ├── AULA05/   lista circular
+│   ├── AULA06/   pilha e fila
+│   └── AULA08/   matriz esparsa (tabela de dispersão)
 │
 └── (novas disciplinas entram aqui)
 ```
