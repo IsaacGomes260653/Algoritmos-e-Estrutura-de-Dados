@@ -159,4 +159,25 @@ public class MatrizEsparsa {
         }
         return quantidade;
     }
+    public void exibir(){
+        //Cenário de estrutura vazia
+        if (cabeca == null){
+            System.out.println("(estrutura vazia)");
+            return;
+        }
+
+        //Cenário de estrutura com diretores: laço de fora anda nos diretores,
+        //laço de dentro anda nos nós do diretor atual.
+        Diretor ponteiroDiretor = cabeca;
+        while (ponteiroDiretor != null){
+            System.out.print("Resto " + ponteiroDiretor.getResto() + ":");
+            No ponteiro = ponteiroDiretor.getProximoNo();
+            while (ponteiro != null){
+                System.out.print(" " + ponteiro.getNumero());
+                ponteiro = ponteiro.getProximo();
+            }
+            System.out.println();
+            ponteiroDiretor = ponteiroDiretor.getProximoDiretor();
+        }
+    }
 }
