@@ -55,7 +55,7 @@ As aulas 02, 04 e 07 foram escritas depois, a partir do plano de ensino da turma
 
 Cada disciplina fica em uma pasta própria, e cada aula com código em uma subpasta `AULAxx`. O número é o da aula em que o conteúdo foi visto, por isso a sequência pode ter saltos.
 
-Pastas separadas também evitam colisão de nomes: `No.java` existe em quatro aulas e `Lista.java` em duas, e o Java não permite duas classes de mesmo nome no mesmo diretório.
+Pastas separadas também evitam colisão de nomes: `No.java` existe em seis aulas e `Lista.java` em três, e o Java não permite duas classes de mesmo nome no mesmo diretório.
 
 ---
 
