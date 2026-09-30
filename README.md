@@ -63,7 +63,7 @@ Pastas separadas também evitam colisão de nomes: `No.java` existe em seis aula
 
 Cada pasta é independente. As aspas nos comandos são necessárias por causa dos espaços em `Algoritmos e ED`.
 
-**Pastas sem `package`** (`AULA01`, `AULA03`, `AULA05`): entre na pasta e compile.
+**Pastas sem `package`** (`AULA01` a `AULA05`): entre na pasta e compile.
 
 ```bash
 cd "Algoritmos e ED/AULA03"
@@ -71,7 +71,7 @@ javac *.java
 java Principal
 ```
 
-Para exercícios com um único arquivo (`AULA01`):
+Para exercícios com um único arquivo (`AULA01` e `AULA02`):
 
 ```bash
 cd "Algoritmos e ED/AULA01"
@@ -79,7 +79,7 @@ javac MatrizTransposta.java
 java MatrizTransposta
 ```
 
-**Pastas com `package`** (`AULA06`, `AULA08`): compile a partir da pasta de cima. O Java exige que as classes do pacote `AULA08` estejam numa pasta chamada `AULA08`, e o nome da classe passa a incluir o pacote.
+**Pastas com `package`** (`AULA06` a `AULA08`): compile a partir da pasta de cima. O Java exige que as classes do pacote `AULA08` estejam numa pasta chamada `AULA08`, e o nome da classe passa a incluir o pacote.
 
 ```bash
 cd "Algoritmos e ED"
