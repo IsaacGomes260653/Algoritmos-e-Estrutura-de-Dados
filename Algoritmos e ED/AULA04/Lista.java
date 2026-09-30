@@ -135,4 +135,17 @@ public class Lista {
         }
     }
 
+    public void imprimir(){
+        /*
+            Idêntico ao da lista simples: começa na cabeça
+            e avança pelo "proximo" até encontrar null.
+        */
+        No ponteiro = cabeca;
+        while (ponteiro != null){
+            System.out.println(ponteiro.getNumero());
+            ponteiro = ponteiro.getProximo();
+        }
+        // Lista vazia: o while nem executa, e nada é impresso
+    }
+
 }
