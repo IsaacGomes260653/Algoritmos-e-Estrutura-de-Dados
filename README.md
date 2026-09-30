@@ -22,7 +22,7 @@ Estruturas implementadas do zero, sem usar as classes prontas do `java.util`.
 | `AULA06` | Pilha (LIFO) e fila (FIFO) com nós encadeados — experimento de desempenho O(1) × O(n) |
 | `AULA08` | Matriz esparsa como tabela de dispersão — resto da divisão, colisões e encadeamento |
 
-**Conceitos:** arrays uni e bidimensionais, laços aninhados, encapsulamento, referências entre objetos, religação de ponteiros e análise de complexidade — O(n), O(n²), O(n³).
+**Conceitos:** arrays uni e bidimensionais, laços aninhados, encapsulamento, referências entre objetos, religação de ponteiros, lista circular, pilha (LIFO) e fila (FIFO), tabela de dispersão com encadeamento e análise de complexidade — O(1), O(n), O(n²), O(n³).
 
 <!--
     Conforme novas disciplinas forem cursadas, adicione a seção
