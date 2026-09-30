@@ -148,4 +148,44 @@ public class Lista {
         // Lista vazia: o while nem executa, e nada é impresso
     }
 
+    public void imprimirInverso(){
+        /*
+            O MÉTODO QUE SÓ A LISTA DUPLA CONSEGUE FAZER
+            sem gastar memória extra.
+
+            Numa lista simples, imprimir de trás para frente
+            exigiria guardar os valores em outro lugar (um vetor,
+            uma pilha) ou percorrer a lista de novo para cada
+            elemento — O(n²).
+
+            Aqui são duas etapas, ambas O(n):
+            1) caminhar pelo "proximo" até o último nó
+            2) voltar pelo "anterior" imprimindo, até null
+        */
+
+        //Caso fácil: lista vazia
+        /*
+            Sai antes, porque o primeiro while chama
+            ponteiro.getProximo() — em null, seria
+            NullPointerException.
+        */
+        if (cabeca == null){
+            return;
+        }
+
+        No ponteiro = cabeca;
+        while (ponteiro.getProximo() != null){
+            ponteiro = ponteiro.getProximo();
+        }
+
+        /*
+            Agora "ponteiro" está no último nó.
+            O laço de volta é o espelho do imprimir():
+            troca getProximo() por getAnterior().
+        */
+        while (ponteiro != null){
+            System.out.println(ponteiro.getNumero());
+            ponteiro = ponteiro.getAnterior();
+        }
+    }
 }
