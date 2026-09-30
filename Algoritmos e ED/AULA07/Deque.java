@@ -169,4 +169,16 @@ public class Deque {
         cauda.setProximo(null);
     }
 
+    public void imprimir(){
+        /*
+            Percorre do início ao fim, como o imprimir()
+            das listas. Não altera o deque.
+        */
+        No ponteiro = cabeca;
+        while (ponteiro != null){
+            System.out.println(ponteiro.getNumero());
+            ponteiro = ponteiro.getProximo();
+        }
+        // Deque vazio: o while nem executa, e nada é impresso
+    }
 }
