@@ -62,4 +62,28 @@ public class MatrizEsparsa {
         //referência para o resto da lista.
         ponteiroDiretor.setProximoNo(new No(numero, ponteiroDiretor.getProximoNo()));
     }
+    public boolean buscar(int numero){
+        int resto = calcularResto(numero);
+
+        //Procura o diretor do resto SEM criar (diferente de procurarDiretor)
+        Diretor ponteiroDiretor = cabeca;
+        while ((ponteiroDiretor != null) && (ponteiroDiretor.getResto() != resto)){
+            ponteiroDiretor = ponteiroDiretor.getProximoDiretor();
+        }
+
+        //Cenário de diretor NÃO encontrado (inclui a estrutura vazia):
+        //se nem o grupo existe, o número com certeza não está lá.
+        if (ponteiroDiretor == null){
+            return false;
+        }
+
+        //Cenário de diretor encontrado: percorre SÓ os nós deste diretor.
+        //Os outros diretores nem são olhados: essa é a vantagem da dispersão.
+        No ponteiro = ponteiroDiretor.getProximoNo();
+        while ((ponteiro != null) && (ponteiro.getNumero() != numero)){
+            ponteiro = ponteiro.getProximo();
+        }
+        //Se o ponteiro parou antes do fim, parou em cima do número
+        return ponteiro != null;
+    }
 }
