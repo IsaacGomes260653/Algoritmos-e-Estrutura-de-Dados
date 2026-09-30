@@ -145,4 +145,18 @@ public class MatrizEsparsa {
         }
         return true;
     }
+    //Conta todos os números guardados, inclusive os repetidos.
+    public int contar(){
+        int quantidade = 0;
+        Diretor ponteiroDiretor = cabeca;
+        while (ponteiroDiretor != null){
+            No ponteiro = ponteiroDiretor.getProximoNo();
+            while (ponteiro != null){
+                quantidade++;
+                ponteiro = ponteiro.getProximo();
+            }
+            ponteiroDiretor = ponteiroDiretor.getProximoDiretor();
+        }
+        return quantidade;
+    }
 }
