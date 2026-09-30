@@ -53,20 +53,33 @@ Pastas separadas também evitam colisão de nomes: `No.java` existe em quatro au
 
 ## ▶️ Como executar
 
-Cada pasta é independente. Entre nela e compile:
+Cada pasta é independente. As aspas nos comandos são necessárias por causa dos espaços em `Algoritmos e ED`.
+
+**Pastas sem `package`** (`AULA01`, `AULA03`, `AULA05`): entre na pasta e compile.
 
 ```bash
-cd algoritmos-e-estruturas-de-dados/02-lista-encadeada
+cd "Algoritmos e ED/AULA03"
 javac *.java
 java Principal
 ```
 
-Para exercícios com um único arquivo:
+Para exercícios com um único arquivo (`AULA01`):
 
 ```bash
+cd "Algoritmos e ED/AULA01"
 javac MatrizTransposta.java
 java MatrizTransposta
 ```
+
+**Pastas com `package`** (`AULA06`, `AULA08`): compile a partir da pasta de cima. O Java exige que as classes do pacote `AULA08` estejam numa pasta chamada `AULA08`, e o nome da classe passa a incluir o pacote.
+
+```bash
+cd "Algoritmos e ED"
+javac AULA08/*.java
+java AULA08.Principal
+```
+
+No Windows com JDK anterior ao 18, acrescente `-encoding UTF-8` ao `javac` para os acentos aparecerem corretamente.
 
 **Requisito:** JDK 8 ou superior.
 
