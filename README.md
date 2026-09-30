@@ -25,6 +25,8 @@ Estruturas implementadas do zero, sem usar as classes prontas do `java.util`.
 | `AULA07` | Deque (fila de duas pontas) com cabeça e cauda — as quatro operações em O(1) |
 | `AULA08` | Matriz esparsa como tabela de dispersão — resto da divisão, colisões e encadeamento |
 
+As aulas 02, 04 e 07 foram escritas depois, a partir do plano de ensino da turma de segunda-feira, seguindo o estilo das demais. O material da disciplina traz só o tema dessas aulas, sem o código feito em sala.
+
 **Conceitos:** arrays uni e bidimensionais, laços aninhados, encapsulamento, referências entre objetos, religação de ponteiros, lista circular, pilha (LIFO) e fila (FIFO), tabela de dispersão com encadeamento e análise de complexidade — O(1), O(n), O(n²), O(n³).
 
 <!--
