@@ -26,9 +26,15 @@ public class MatrizEsparsa {
         return Math.floorMod(numero, modulo);
     }
 
+    //Devolve o diretor do resto do número. Se ele não existir, CRIA um novo.
+    //Por isso só serve para inserir: buscar e remover não podem criar diretores.
     private Diretor procurarDiretor(int numero){
         int resto = calcularResto(numero);
 
+        //O ponteiro começa no primeiro diretor e anda um diretor por volta.
+        //Para quando: chegou ao fim (null) OU achou o diretor do resto.
+        //A ordem do && importa: se ponteiro for null, o Java nem avalia
+        //ponteiro.getResto() (curto-circuito), evitando NullPointerException.
         Diretor ponteiro = cabeca;
         while ((ponteiro != null) && (ponteiro.getResto() != resto)){
             ponteiro = ponteiro.getProximoDiretor();
@@ -39,13 +45,21 @@ public class MatrizEsparsa {
             return ponteiro;
         }
 
-        //Cenário de resto NÃO encontrado
+        //Cenário de resto NÃO encontrado: cria o diretor já no INÍCIO da lista
+        //de diretores. O novo diretor aponta para a cabeca antiga e depois
+        //passa a ser a nova cabeca. Custa O(1) e funciona até com a lista vazia
+        //(cabeca == null: o novo diretor aponta para null e vira o único).
         cabeca = new Diretor(resto, null, cabeca);
         return cabeca;
     }
     public void inserir(int numero){
         Diretor ponteiroDiretor = procurarDiretor(numero);
+        //Inserção no início da lista de nós, em dois passos numa linha só:
+        //1) new No(numero, ponteiroDiretor.getProximoNo()): o novo nó aponta
+        //   para quem ERA o primeiro nó do diretor (ou null se não havia nenhum);
+        //2) setProximoNo(...): o diretor passa a apontar para o novo nó.
+        //A ordem é essencial: se o diretor mudasse primeiro, perderíamos a
+        //referência para o resto da lista.
         ponteiroDiretor.setProximoNo(new No(numero, ponteiroDiretor.getProximoNo()));
     }
-
 }
