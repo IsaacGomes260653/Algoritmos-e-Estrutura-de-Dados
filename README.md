@@ -19,6 +19,7 @@ Estruturas implementadas do zero, sem usar as classes prontas do `java.util`.
 | `AULA01` | Vetores e matrizes — preenchimento, inversão, transposição e multiplicação de matrizes |
 | `AULA03` | Lista simplesmente encadeada — inserção, exclusão e percurso |
 | `AULA05` | Lista circular com menu interativo |
+| `AULA06` | Pilha (LIFO) e fila (FIFO) com nós encadeados — experimento de desempenho O(1) × O(n) |
 
 **Conceitos:** arrays uni e bidimensionais, laços aninhados, encapsulamento, referências entre objetos, religação de ponteiros e análise de complexidade — O(n), O(n²), O(n³).
 
