@@ -16,6 +16,15 @@ public class No {
     }
 
     //Métodos de acesso da classe
-    public int
-    
+    public int getNumero(){
+        return numero;
+    }
+    //Não existe setNumero de propósito: se o número mudasse, o resto também
+    //mudaria e o nó ficaria pendurado no diretor errado.
+    public No getProximo(){
+        return proximo;
+    }
+    public void setProximo(No proximo){
+        this.proximo = proximo;
+    }
 }
