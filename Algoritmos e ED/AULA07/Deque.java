@@ -89,4 +89,49 @@ public class Deque {
         cauda.getAnterior().setProximo(cauda);
     }
 
+    public void removerInicio(){
+        //Caso MUITO fácil: deque vazio
+        /*
+            Mesmo comportamento do sair() da Fila (AULA06):
+            avisa na tela e sai.
+        */
+        if (cabeca == null){
+            System.out.println("O deque está vazio");
+            return;
+        }
+
+        /*
+            Como no pop() da Pilha, o método IMPRIME o valor
+            removido em vez de devolvê-lo.
+        */
+        System.out.println(cabeca.getNumero());
+
+        //Caso fácil: deque com um único nó
+        /*
+            Como saber que só existe um? A cabeça e a cauda
+            são o MESMO objeto — o == compara referências.
+
+            As duas precisam virar null. Se só a cabeça mudasse,
+            a cauda continuaria apontando para o nó removido.
+        */
+        if (cabeca == cauda){
+            cabeca = null;
+            cauda = null;
+            return;
+        }
+
+        //Caso difícil: deque com mais de um nó
+        /*
+            A cabeça passa para o segundo nó, e o novo primeiro
+            deixa de apontar para trás.
+
+                antes:  [1] ⇄ [2] ⇄ [3]
+                depois:       [2] ⇄ [3]
+
+            CUSTO: O(1).
+        */
+        cabeca = cabeca.getProximo();
+        cabeca.setAnterior(null);
+    }
+
 }
