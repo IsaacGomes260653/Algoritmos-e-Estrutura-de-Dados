@@ -65,4 +65,28 @@ public class Deque {
         cabeca.getProximo().setAnterior(cabeca);
     }
 
+    public void inserirFim(int numero){
+        //Caso fácil: deque vazio
+        // Mesma situação do inserirInicio(): cabeça e cauda no mesmo nó
+        if (cauda == null){
+            cauda = new No(numero, null, null);
+            cabeca = cauda;
+            return;
+        }
+
+        //Caso difícil: deque não vazio
+        /*
+            O ESPELHO do inserirInicio(): troca cabeca por cauda
+            e anterior por proximo.
+
+            Compare com o inserir() da lista dupla (AULA04), que
+            precisava de um while para achar o último nó.
+            Aqui a cauda já está guardada: não há percurso.
+
+            CUSTO: O(1).
+        */
+        cauda = new No(numero, cauda, null);
+        cauda.getAnterior().setProximo(cauda);
+    }
+
 }
