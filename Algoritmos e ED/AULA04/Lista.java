@@ -61,4 +61,78 @@ public class Lista {
         ultimo.setProximo(new No(numero, ultimo, null));
     }
 
+    public void excluir(int numero){
+        //Caso fácil: lista vazia
+        // Nada a excluir — sai sem fazer nada
+        if (cabeca == null){
+            return;
+        }
+
+        //Caso fácil: excluir o primeiro nó da lista
+        /*
+            A cabeça passa a ser o segundo nó, como na lista simples.
+
+            O PASSO NOVO: o novo primeiro nó ainda aponta para trás,
+            para o nó que acabou de sair. Esse "anterior" precisa
+            virar null, senão a lista continua presa ao nó removido.
+
+            O if protege o caso de a lista ter um só elemento:
+            aí a nova cabeça é null, e chamar setAnterior()
+            em null causaria NullPointerException.
+        */
+        if (cabeca.getNumero() == numero){
+            cabeca = cabeca.getProximo();
+            if (cabeca != null){
+                cabeca.setAnterior(null);
+            }
+            return;
+        }
+
+        //Caso difícil: excluir no meio ou no final da lista
+        /*
+            AQUI ESTÁ A GRANDE VANTAGEM da lista dupla.
+
+            Na lista simples era preciso parar no nó ANTERIOR
+            ao que sai, porque não havia como voltar.
+            Aqui o "ponteiro" pode parar EM CIMA do nó que sai:
+            ele mesmo sabe quem é o seu anterior.
+
+            O && faz curto-circuito da esquerda para a direita:
+            se ponteiro for null, getNumero() nem é chamado.
+        */
+        No ponteiro = cabeca;
+        while ((ponteiro != null) && (ponteiro.getNumero() != numero)){
+            ponteiro = ponteiro.getProximo();
+        }
+
+        if (ponteiro == null){
+            //Caso em que foi tentada a exclusão de um número que não existe
+            // Chegou ao fim da lista sem encontrar: sai sem alterar nada
+            return;
+        }
+
+        //Caso da exclusão propriamente dita no meio ou no fim
+        /*
+            Os vizinhos do nó que sai passam a apontar um
+            para o outro, "pulando" o nó do meio:
+
+                antes:  [A] ⇄ [B] ⇄ [C]
+                depois: [A] ⇄ [C]          (B ficou de fora)
+
+            1) o anterior (A) passa a apontar para frente, para C
+            2) o próximo (C) passa a apontar para trás, para A
+
+            Não precisa testar se o anterior existe: o caso do
+            primeiro nó já foi tratado lá em cima, então aqui
+            o nó que sai SEMPRE tem alguém antes dele.
+
+            Mas o próximo pode não existir — se o nó que sai
+            for o último, não há C para religar. Daí o if.
+        */
+        ponteiro.getAnterior().setProximo(ponteiro.getProximo());
+        if (ponteiro.getProximo() != null){
+            ponteiro.getProximo().setAnterior(ponteiro.getAnterior());
+        }
+    }
+
 }
