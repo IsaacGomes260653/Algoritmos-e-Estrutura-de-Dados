@@ -86,4 +86,63 @@ public class MatrizEsparsa {
         //Se o ponteiro parou antes do fim, parou em cima do número
         return ponteiro != null;
     }
+    //Remove UMA ocorrência do número. Devolve false se ele não existir.
+    public boolean remover(int numero){
+        int resto = calcularResto(numero);
+
+        //Procura o diretor guardando também o ANTERIOR, porque, se o diretor
+        //ficar vazio, será preciso religar o anterior ao seguinte.
+        Diretor anteriorDiretor = null;
+        Diretor ponteiroDiretor = cabeca;
+        while ((ponteiroDiretor != null) && (ponteiroDiretor.getResto() != resto)){
+            anteriorDiretor = ponteiroDiretor;
+            ponteiroDiretor = ponteiroDiretor.getProximoDiretor();
+        }
+
+        //Cenário de diretor NÃO encontrado (inclui a estrutura vazia)
+        if (ponteiroDiretor == null){
+            return false;
+        }
+
+        //Procura o nó guardando o anterior, pelo mesmo motivo: numa lista
+        //simplesmente encadeada, só o anterior consegue "pular" o removido.
+        No anterior = null;
+        No ponteiro = ponteiroDiretor.getProximoNo();
+        while ((ponteiro != null) && (ponteiro.getNumero() != numero)){
+            anterior = ponteiro;
+            ponteiro = ponteiro.getProximo();
+        }
+
+        //Cenário de número NÃO encontrado
+        if (ponteiro == null){
+            return false;
+        }
+
+        //Cenário de remoção do primeiro nó: não há nó anterior, quem aponta
+        //para ele é o próprio diretor.
+        if (anterior == null){
+            ponteiroDiretor.setProximoNo(ponteiro.getProximo());
+        }
+        //Cenário de remoção do meio ou do fim: o anterior pula o removido.
+        else{
+            anterior.setProximo(ponteiro.getProximo());
+        }
+        //O nó removido ficou sem ninguém apontando para ele: o coletor de
+        //lixo do Java libera essa memória sozinho.
+
+        //Cenário de diretor que ficou vazio: ele também sai da lista, para a
+        //estrutura guardar só grupos que têm números (é isso que a torna
+        //"esparsa"). Se precisar dele de novo, inserir() o recria.
+        if (ponteiroDiretor.getProximoNo() == null){
+            //Cenário de diretor na cabeca
+            if (anteriorDiretor == null){
+                cabeca = ponteiroDiretor.getProximoDiretor();
+            }
+            //Cenário de diretor no meio ou no fim
+            else{
+                anteriorDiretor.setProximoDiretor(ponteiroDiretor.getProximoDiretor());
+            }
+        }
+        return true;
+    }
 }
