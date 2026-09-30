@@ -7,6 +7,13 @@ public class MatrizEsparsa {
 
     //Método construtor cheio da classe
     public MatrizEsparsa(int modulo){
+        super();
+        //Cenário de módulo inválido: modulo 0 causaria divisão por zero em
+        //todo cálculo de resto, e modulo negativo geraria restos negativos.
+        //Melhor avisar agora, na criação, do que falhar depois no meio do uso.
+        if (modulo <= 0){
+            throw new IllegalArgumentException("O módulo deve ser maior que zero: " + modulo);
+        }
         this.modulo = modulo;
     }
 
