@@ -42,9 +42,12 @@ As aulas 02, 04 e 07 foram escritas depois, a partir do plano de ensino da turma
 ```
 ├── Algoritmos e ED/
 │   ├── AULA01/   vetores e matrizes
+│   ├── AULA02/   ordenação e busca
 │   ├── AULA03/   lista encadeada
+│   ├── AULA04/   lista duplamente encadeada
 │   ├── AULA05/   lista circular
 │   ├── AULA06/   pilha e fila
+│   ├── AULA07/   deque
 │   └── AULA08/   matriz esparsa (tabela de dispersão)
 │
 └── (novas disciplinas entram aqui)
